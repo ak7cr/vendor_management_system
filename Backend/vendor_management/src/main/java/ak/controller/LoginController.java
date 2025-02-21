@@ -13,42 +13,42 @@ import ak.entity.Vendor;
 
 @Controller
 public class LoginController {
-	
-	@Autowired
-	private VendorService vendorService;
-	
-	public LoginController(VendorService vendorService) {
-		this.vendorService = vendorService;
-	}
-	
-	@PostMapping("/stager")
-	public ModelAndView validateLogin(
-			@RequestParam("email") String email,
-			@RequestParam("password") String password) throws Exception {
-		
-		ModelAndView mav = new ModelAndView();
+    
+    @Autowired
+    private VendorService vendorService;
 
-		// Fetch vendor data based on email
-		List<Vendor> vendorList = vendorService.findByEmailContaining(email);
-	
-		if (vendorList.isEmpty()) {
-			mav.addObject("errorMessage", "Invalid email or password!");
-			mav.setViewName("login");
-			return mav;
-		}
-	
-		Vendor vendorData = vendorList.get(0);
-		String dbPwd = vendorData.getPassword();
-	
-		if (password.equals(dbPwd)) {
-			System.out.println("Successfully logged in");
-			mav.addObject("vendorName", vendorData.getName());
-			mav.setViewName("home");
-		} else {
-			mav.addObject("errorMessage", "Invalid email or password!");
-			mav.setViewName("login");
-		}
-	
-		return mav; 
-	}
+    public LoginController(VendorService vendorService) {
+        this.vendorService = vendorService;
+    }
+    
+    @PostMapping("/stager")
+    public ModelAndView validateLogin(
+            @RequestParam("email") String email,
+            @RequestParam("password") String password) throws Exception {
+        
+        ModelAndView mav = new ModelAndView();
+
+        // Fetch vendor data based on email
+        List<Vendor> vendorList = vendorService.findByEmailContaining(email);
+    
+        if (vendorList.isEmpty()) {
+            mav.addObject("errorMessage", "Invalid email or password!");
+            mav.setViewName("login");
+            return mav;
+        }
+    
+        Vendor vendorData = vendorList.get(0);
+        String dbPwd = vendorData.getPassword();
+    
+        if (password.equals(dbPwd)) {
+            System.out.println("Successfully logged in");
+            mav.addObject("vendorName", vendorData.getName());
+            mav.setViewName("home");
+        } else {
+            mav.addObject("errorMessage", "Invalid email or password!");
+            mav.setViewName("login");
+        }
+    
+        return mav; 
+    }
 }
