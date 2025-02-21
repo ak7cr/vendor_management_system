@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color:blue;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+
+        .dob {
+            text-align: left;
+            margin: 10px 0;
+            font-size: 12px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vendor Management System</h1>
+        <form>
+            <input type="text" name="name" placeholder="Enter your name" required><br>
+            <input type="email" name="email" placeholder="Enter your email" required><br>
+            <input type="text" name="id" placeholder="Enter your ID" required><br>
+            <input type="text" name="phone" placeholder="Enter your phone" required><br>
+            <input type="text" name="address" placeholder="Enter your address" required><br>
+            <input type="text" name="city" placeholder="Enter your city" required>
+            <input type="text" name="state" placeholder="Enter your state" required><br>
+            <input type="text" name="department" placeholder="Enter your department" required><br>
+        
+            <input type="date"  placeholder="enter ur dob" required><br>
+            <button type="submit">Submit Now</button>
+        </form>
+    </div>
+</body>
+</html>
