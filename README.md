@@ -1,1 +1,0 @@
-DBMS minor project
